@@ -1,0 +1,133 @@
+{
+  "name": "appium-agent-tools",
+  "displayName": "Appium Agent Tools",
+  "description": "VS Code extension that exposes AI-callable tools for controlling Android devices via Appium",
+  "version": "0.1.0",
+  "publisher": "appium-tools",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguageModelTool:appium_startSession"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "appium_startSession",
+        "description": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "serverUrl": {
+              "type": "string",
+              "description": "URL of the Appium server (e.g., http://127.0.0.1:4723)"
+            },
+            "capabilities": {
+              "type": "object",
+              "description": "Desired capabilities for the session (platformName, automationName, etc.)"
+            }
+          },
+          "required": ["serverUrl", "capabilities"]
+        }
+      },
+      {
+        "name": "appium_stopSession",
+        "description": "Terminate the active Appium session and clean up resources.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "appium_findElement",
+        "description": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "using": {
+              "type": "string",
+              "description": "Locator strategy: 'id', 'xpath', 'accessibility id', or 'class name'"
+            },
+            "value": {
+              "type": "string",
+              "description": "The locator value to search for"
+            }
+          },
+          "required": ["using", "value"]
+        }
+      },
+      {
+        "name": "appium_tap",
+        "description": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "elementId": {
+              "type": "string",
+              "description": "Element ID to tap (from findElement)"
+            },
+            "x": {
+              "type": "number",
+              "description": "X coordinate for tapping"
+            },
+            "y": {
+              "type": "number",
+              "description": "Y coordinate for tapping"
+            }
+          }
+        }
+      },
+      {
+        "name": "appium_typeText",
+        "description": "Type text into a focused or specified element.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "elementId": {
+              "type": "string",
+              "description": "Element ID to type into"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text to type"
+            }
+          },
+          "required": ["elementId", "text"]
+        }
+      },
+      {
+        "name": "appium_screenshot",
+        "description": "Capture a screenshot of the device screen and save it to the workspace.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "appium_pageSource",
+        "description": "Retrieve the current UI hierarchy XML and save it to the workspace.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.90.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {}
+}
