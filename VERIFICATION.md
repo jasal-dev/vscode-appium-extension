@@ -5,9 +5,10 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
 ## Table of Contents
 
 1. [Verifying Extension Load](#verifying-extension-load)
-2. [Verifying Tools in GitHub Copilot](#verifying-tools-in-github-copilot)
-3. [Testing Tools Manually](#testing-tools-manually)
-4. [Troubleshooting](#troubleshooting)
+2. [Viewing Tools in Agent Configuration](#viewing-tools-in-agent-configuration)
+3. [Verifying Tools in GitHub Copilot](#verifying-tools-in-github-copilot)
+4. [Testing Tools Manually](#testing-tools-manually)
+5. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -39,6 +40,48 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
    - Type: `Developer: Show Logs`
    - Select **Extension Host**
 2. Look for entries related to "Appium Agent Tools" or the 7 tool registrations
+
+---
+
+## Viewing Tools in Agent Configuration
+
+The Appium tools now appear in VS Code's agent tool configuration view, where you can select which tools are available to the chat.
+
+### How to Access the Tool Configuration:
+
+1. **Open Chat Settings**:
+   - In VS Code, open GitHub Copilot Chat
+   - Click the settings gear icon (⚙️) in the chat panel
+   - Or press `Ctrl+Shift+P` and type: `Chat: Open Chat Settings`
+
+2. **View Available Tools**:
+   - Look for the "Tools" or "Agent Tools" section
+   - You should see all 7 Appium tools listed:
+     - **Start Appium Session** - Tags: appium, mobile, testing, android, automation
+     - **Stop Appium Session** - Tags: appium, mobile, testing, android, automation
+     - **Find UI Element** - Tags: appium, mobile, testing, android, automation, ui
+     - **Tap Element or Coordinates** - Tags: appium, mobile, testing, android, automation, interaction
+     - **Type Text** - Tags: appium, mobile, testing, android, automation, interaction, input
+     - **Capture Screenshot** - Tags: appium, mobile, testing, android, automation, debug, screenshot
+     - **Get Page Source** - Tags: appium, mobile, testing, android, automation, debug, ui
+
+3. **Enable/Disable Tools**:
+   - Check/uncheck individual tools to control which ones are available to the AI agent
+   - Tools can be filtered by their tags (e.g., filter by "testing", "mobile", "automation")
+
+### Tool Tags
+
+Each tool is tagged with relevant categories to help with discovery and filtering:
+- **appium** - All Appium-specific tools
+- **mobile** - Mobile automation tools
+- **testing** - Testing and QA tools
+- **android** - Android-specific functionality
+- **automation** - Automation capabilities
+- **ui** - UI element interaction
+- **interaction** - User interaction simulation
+- **input** - Text input tools
+- **debug** - Debugging and inspection tools
+- **screenshot** - Screenshot capabilities
 
 ---
 

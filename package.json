@@ -25,6 +25,7 @@
         "name": "appium_startSession",
         "displayName": "Start Appium Session",
         "modelDescription": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
+        "tags": ["appium", "mobile", "testing", "android", "automation"],
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -44,6 +45,7 @@
         "name": "appium_stopSession",
         "displayName": "Stop Appium Session",
         "modelDescription": "Terminate the active Appium session and clean up resources.",
+        "tags": ["appium", "mobile", "testing", "android", "automation"],
         "inputSchema": {
           "type": "object",
           "properties": {}
@@ -53,6 +55,7 @@
         "name": "appium_findElement",
         "displayName": "Find UI Element",
         "modelDescription": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "ui"],
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -72,6 +75,7 @@
         "name": "appium_tap",
         "displayName": "Tap Element or Coordinates",
         "modelDescription": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "interaction"],
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -94,6 +98,7 @@
         "name": "appium_typeText",
         "displayName": "Type Text",
         "modelDescription": "Type text into a focused or specified element.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "interaction", "input"],
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -113,6 +118,7 @@
         "name": "appium_screenshot",
         "displayName": "Capture Screenshot",
         "modelDescription": "Capture a screenshot of the device screen and save it to the workspace.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "screenshot"],
         "inputSchema": {
           "type": "object",
           "properties": {}
@@ -122,6 +128,7 @@
         "name": "appium_pageSource",
         "displayName": "Get Page Source",
         "modelDescription": "Retrieve the current UI hierarchy XML and save it to the workspace.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "ui"],
         "inputSchema": {
           "type": "object",
           "properties": {}

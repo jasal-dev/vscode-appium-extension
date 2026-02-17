@@ -77,20 +77,27 @@ After launching the extension (F5) or installing from VSIX:
    - Press `Ctrl+Shift+P` → `Developer: Show Running Extensions`
    - Look for "Appium Agent Tools" with status **Active**
 
-2. **Check GitHub Copilot Integration**:
+2. **View Tools in Agent Configuration** (New!):
+   - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
+   - Click the settings gear icon (⚙️) in the chat panel
+   - Look for "Tools" or "Agent Tools" section
+   - You'll see all 7 Appium tools with their display names and tags
+   - Enable/disable individual tools as needed
+
+3. **Check GitHub Copilot Integration**:
    - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
    - Ask: "What Appium tools do you have available?"
    - You should see the 7 Appium tools listed
 
-3. **View Tools in Copilot**:
+4. **View Tools in Copilot**:
    The following tools will be available to AI agents:
-   - `appium_startSession` - Start Appium Session
-   - `appium_stopSession` - Stop Appium Session
-   - `appium_findElement` - Find UI Element
-   - `appium_tap` - Tap Element or Coordinates
-   - `appium_typeText` - Type Text
-   - `appium_screenshot` - Capture Screenshot
-   - `appium_pageSource` - Get Page Source
+   - `appium_startSession` - Start Appium Session (tags: appium, mobile, testing, android, automation)
+   - `appium_stopSession` - Stop Appium Session (tags: appium, mobile, testing, android, automation)
+   - `appium_findElement` - Find UI Element (tags: appium, mobile, testing, android, automation, ui)
+   - `appium_tap` - Tap Element or Coordinates (tags: appium, mobile, testing, android, automation, interaction)
+   - `appium_typeText` - Type Text (tags: appium, mobile, testing, android, automation, interaction, input)
+   - `appium_screenshot` - Capture Screenshot (tags: appium, mobile, testing, android, automation, debug, screenshot)
+   - `appium_pageSource` - Get Page Source (tags: appium, mobile, testing, android, automation, debug, ui)
 
 For detailed verification instructions, troubleshooting, and testing, see **[VERIFICATION.md](./VERIFICATION.md)**.
 

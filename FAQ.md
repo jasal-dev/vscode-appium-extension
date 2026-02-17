@@ -23,9 +23,27 @@ When you press F5 and the extension loads, you can verify it's active:
    All 7 Appium tools registered successfully
    ```
 
+### In Agent Tool Configuration View:
+
+The tools now appear in the **agent tool configuration view** where you can select which tools are available to the chat:
+
+1. **Open Chat Settings**:
+   - Open GitHub Copilot Chat
+   - Click the settings gear icon (⚙️) in the chat panel
+   - Or use Command Palette: `Chat: Open Chat Settings`
+
+2. **View Tools List**:
+   - Look for the "Tools" or "Agent Tools" section
+   - You'll see all 7 Appium tools listed with their display names
+   - Each tool has tags like: `appium`, `mobile`, `testing`, `android`, `automation`
+
+3. **Enable/Disable Tools**:
+   - Check/uncheck boxes to control which tools the AI agent can use
+   - Filter tools by tags (e.g., "testing", "automation", "debug")
+
 ### In GitHub Copilot:
 
-The tools appear as **callable functions** that Copilot can use. You won't see a UI for them directly, but:
+The tools appear as **callable functions** that Copilot can use:
 
 1. **Open Copilot Chat**: Press `Ctrl+Shift+I` or `Cmd+Shift+I`
 2. **Ask Copilot**: "What Appium tools do you have available?"
@@ -47,12 +65,13 @@ When Copilot has access to the tools, it can call them programmatically:
 {
   name: "appium_startSession",
   displayName: "Start Appium Session",
+  tags: ["appium", "mobile", "testing", "android", "automation"],
   description: "Start a new Android Appium session...",
   parameters: { serverUrl, capabilities }
 }
 ```
 
-**Important**: The tools are **not visible in the VS Code UI**. They are only visible to AI agents (like GitHub Copilot) through the Language Model Tools API.
+**Note**: Tools are visible in both the agent tool configuration UI and to AI agents through the Language Model Tools API.
 
 ---
 
@@ -78,7 +97,17 @@ Here are **multiple ways** to verify:
    All 7 Appium tools registered successfully
    ```
 
-### Method 3: Test with GitHub Copilot
+### Method 3: View in Agent Tool Configuration
+
+**New Feature**: Tools are now visible in the agent tool configuration UI
+
+1. In Extension Development Host, open Copilot Chat (`Ctrl+Shift+I`)
+2. Click the settings gear icon (⚙️) in the chat panel
+3. Look for "Tools" or "Agent Tools" section
+4. You should see all 7 Appium tools listed with their display names and tags
+5. Tools can be enabled/disabled individually from this UI
+
+### Method 4: Test with GitHub Copilot
 
 **Prerequisites**: GitHub Copilot must be installed
 
@@ -89,7 +118,7 @@ Here are **multiple ways** to verify:
    - "What tools do you have for Android testing?"
 3. Copilot should mention the 7 Appium tools
 
-### Method 4: Check Extension Host Log
+### Method 5: Check Extension Host Log
 
 1. In Extension Development Host, press `Ctrl+Shift+P`
 2. Type: `Developer: Show Logs`
