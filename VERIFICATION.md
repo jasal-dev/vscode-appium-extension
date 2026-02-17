@@ -47,9 +47,20 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
 
 The Appium tools appear in VS Code's agent tool configuration view, where you can select which tools are available to the chat.
 
+### Prerequisites
+
+**CRITICAL**: For Language Model Tools to appear, you need:
+
+1. **VS Code Version**: 1.90.0 or higher (check with `code --version`)
+2. **GitHub Copilot**: The GitHub Copilot extension must be installed and enabled
+3. **Copilot Chat**: The Copilot Chat feature must be available (requires Copilot subscription)
+4. **Workspace Trust**: Your workspace must be trusted (check in bottom-left corner)
+
 ### Important Note
 
-**The extension now activates on startup** (`onStartupFinished` activation event), which ensures that all tools are registered and visible in the configuration UI immediately after VS Code starts. This is crucial for the tools to appear in the agent tool configuration view.
+**The extension activates automatically on VS Code startup** (`onStartupFinished` activation event), ensuring tools are registered before the tool configuration UI is populated.
+
+If you see the log message `ExtensionService#_doActivateExtension appium-tools.appium-agent-tools, startup: false, activationEvent: 'onStartupFinished'` with no errors, the extension IS activating correctly. The tools should appear if all prerequisites are met.
 
 ### How to Access the Tool Configuration:
 
@@ -203,6 +214,56 @@ If the extension seems inactive, try:
 #### "Extension 'appium-tools.appium-agent-tools' CANNOT register tool"
 
 **Solution**: This was fixed in a recent commit. Make sure you have the latest code with `displayName` and `modelDescription` fields in `package.json`
+
+#### Tools Not Visible After Extension Activates (Extension activates but tools don't appear)
+
+**Issue**: You see the log message `ExtensionService#_doActivateExtension appium-tools.appium-agent-tools, startup: false, activationEvent: 'onStartupFinished'` with no errors, but tools still don't appear in the configuration UI.
+
+**This means the extension IS activating correctly**, but tools aren't visible. This usually indicates a prerequisites issue:
+
+**Solution Checklist**:
+
+1. **Check VS Code Version**:
+   ```bash
+   code --version
+   ```
+   Must be **1.90.0 or higher**. Language Model Tools API was introduced in VS Code 1.90.0.
+
+2. **Check GitHub Copilot is Installed**:
+   - Open Extensions (`Ctrl+Shift+X`)
+   - Search for "GitHub Copilot"
+   - Ensure it's installed and enabled
+   - Ensure you have an active Copilot subscription
+
+3. **Verify Copilot Chat is Available**:
+   - Press `Ctrl+Shift+I` (or `Cmd+Shift+I` on Mac)
+   - If Copilot Chat opens, you have the feature
+   - If not, you may need to update VS Code or enable Copilot
+
+4. **Check Workspace Trust**:
+   - Look at bottom-left corner of VS Code
+   - If it says "Restricted Mode" or "Untrusted", click it and trust the workspace
+   - Extensions may not fully activate in untrusted workspaces
+
+5. **Verify Extension is Actually Active**:
+   - Press `Ctrl+Shift+P` → `Developer: Show Running Extensions`
+   - Find "Appium Agent Tools"
+   - Status should be "Active" (not "Activating" or "Inactive")
+
+6. **Check Developer Console for Errors**:
+   - Press `Ctrl+Shift+P` → `Developer: Toggle Developer Tools`
+   - Check Console tab for any JavaScript errors
+   - Look for errors related to "languageModelTools" or "lm.registerTool"
+
+7. **Try Invoking a Tool Directly**:
+   - Open Copilot Chat
+   - Try asking: "Can you use the appium_startSession tool?"
+   - If Copilot can use it, tools are working (even if not visible in UI)
+
+**If none of these work**:
+- The tool configuration UI might only appear in specific VS Code Insiders builds
+- Try VS Code Insiders version for latest features
+- Check VS Code release notes for Language Model Tools UI availability
 
 #### Tools Not Visible in Configuration After Installing VSIX
 
