@@ -25,7 +25,9 @@ When you press F5 and the extension loads, you can verify it's active:
 
 ### In Agent Tool Configuration View:
 
-The tools now appear in the **agent tool configuration view** where you can select which tools are available to the chat:
+The tools now appear in the **agent tool configuration view** where you can select which tools are available to the chat.
+
+**Important**: The extension activates automatically on VS Code startup (`onStartupFinished`), ensuring tools are immediately visible in the configuration UI without requiring any user action.
 
 1. **Open Chat Settings**:
    - Open GitHub Copilot Chat

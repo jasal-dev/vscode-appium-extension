@@ -45,7 +45,11 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
 
 ## Viewing Tools in Agent Configuration
 
-The Appium tools now appear in VS Code's agent tool configuration view, where you can select which tools are available to the chat.
+The Appium tools appear in VS Code's agent tool configuration view, where you can select which tools are available to the chat.
+
+### Important Note
+
+**The extension now activates on startup** (`onStartupFinished` activation event), which ensures that all tools are registered and visible in the configuration UI immediately after VS Code starts. This is crucial for the tools to appear in the agent tool configuration view.
 
 ### How to Access the Tool Configuration:
 
@@ -200,6 +204,23 @@ If the extension seems inactive, try:
 
 **Solution**: This was fixed in a recent commit. Make sure you have the latest code with `displayName` and `modelDescription` fields in `package.json`
 
+#### Tools Not Visible in Configuration After Installing VSIX
+
+**Issue**: After packaging VSIX, installing it, and restarting VS Code, tools don't appear in the tool configuration UI.
+
+**Solution**: This was fixed by changing the activation event to `onStartupFinished`. Make sure you:
+1. Have the latest version with `"activationEvents": ["onStartupFinished"]` in package.json
+2. Rebuilt the VSIX after the change: `npm run package`
+3. Uninstalled the old extension completely before installing the new VSIX
+4. Restarted VS Code after installation
+
+**To verify the fix**:
+- Check that your VSIX has the correct activation event:
+  ```bash
+  unzip -p appium-agent-tools-0.1.0.vsix extension/package.json | grep -A 2 activationEvents
+  ```
+  Should show: `"activationEvents": ["onStartupFinished"]`
+
 #### Compilation Errors
 
 **Solution**: 
@@ -218,6 +239,8 @@ Use this checklist to verify everything is working:
 - [ ] Debug Console shows "Appium Agent Tools extension is now active"
 - [ ] Debug Console shows "All 7 Appium tools registered successfully"
 - [ ] All 7 tools appear in `package.json` under `contributes.languageModelTools`
+- [ ] Activation event is set to `"onStartupFinished"` in package.json
+- [ ] Tools are visible in the agent tool configuration UI (Chat Settings)
 - [ ] GitHub Copilot can see the tools (if Copilot is installed)
 - [ ] No errors in Debug Console or Extension Host Log
 - [ ] Extension reloads correctly when code changes (watch mode)

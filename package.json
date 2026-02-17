@@ -16,7 +16,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguageModelTool:appium_startSession"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
