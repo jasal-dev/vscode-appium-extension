@@ -2,6 +2,13 @@
 
 A VS Code extension that exposes AI-callable tools for controlling Android devices via Appium using raw WebDriver HTTP protocol.
 
+## Documentation
+
+- **[VERIFICATION.md](./VERIFICATION.md)** - How to verify the extension is working and see tools in GitHub Copilot
+- **[PACKAGING.md](./PACKAGING.md)** - How to create VSIX packages and install on other machines
+- **[USAGE.md](./USAGE.md)** - Detailed examples of using the tools with AI agents
+- **[IMPLEMENTATION_SUMMARY.md](./IMPLEMENTATION_SUMMARY.md)** - Technical implementation details
+
 ## Features
 
 This extension provides 7 Language Model Tools that GitHub Copilot Agent and other AI agents can invoke:
@@ -23,7 +30,7 @@ This extension provides 7 Language Model Tools that GitHub Copilot Agent and oth
 
 ## Installation
 
-### From Source
+### From Source (Development)
 
 1. Clone this repository
 2. Install dependencies:
@@ -36,9 +43,54 @@ This extension provides 7 Language Model Tools that GitHub Copilot Agent and oth
    ```
 4. Press F5 in VS Code to launch the extension in debug mode
 
+For detailed verification steps, see **[VERIFICATION.md](./VERIFICATION.md)**.
+
+### From VSIX Package (Production)
+
+To install the extension on other machines or run without debug mode:
+
+1. Create a distributable package:
+   ```bash
+   npm run package
+   ```
+   This creates `appium-agent-tools-0.1.0.vsix`
+
+2. Install the VSIX file:
+   - Open VS Code
+   - Go to Extensions (`Ctrl+Shift+X`)
+   - Click "..." → "Install from VSIX..."
+   - Select the `.vsix` file
+
+For complete packaging and installation instructions, see **[PACKAGING.md](./PACKAGING.md)**.
+
 ## Usage
 
 The tools are designed to be invoked by AI agents like GitHub Copilot. Once the extension is activated, AI agents can use these tools to automate Android testing workflows.
+
+### Verifying the Extension is Working
+
+After launching the extension (F5) or installing from VSIX:
+
+1. **Check Extension Status**:
+   - Press `Ctrl+Shift+P` → `Developer: Show Running Extensions`
+   - Look for "Appium Agent Tools" with status **Active**
+
+2. **Check GitHub Copilot Integration**:
+   - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
+   - Ask: "What Appium tools do you have available?"
+   - You should see the 7 Appium tools listed
+
+3. **View Tools in Copilot**:
+   The following tools will be available to AI agents:
+   - `appium_startSession` - Start Appium Session
+   - `appium_stopSession` - Stop Appium Session
+   - `appium_findElement` - Find UI Element
+   - `appium_tap` - Tap Element or Coordinates
+   - `appium_typeText` - Type Text
+   - `appium_screenshot` - Capture Screenshot
+   - `appium_pageSource` - Get Page Source
+
+For detailed verification instructions, troubleshooting, and testing, see **[VERIFICATION.md](./VERIFICATION.md)**.
 
 ### Example Workflow
 

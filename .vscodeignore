@@ -1,0 +1,24 @@
+# Development files
+.vscode/**
+.vscode-test/**
+src/**
+.gitignore
+tsconfig.json
+
+# Build artifacts
+**/*.map
+
+# Dependencies
+node_modules
+
+# Testing
+test/**
+*.test.ts
+
+# Documentation (keep only essential docs in VSIX)
+appium_vscode_agent_tools_mvp_spec.md
+IMPLEMENTATION_SUMMARY.md
+
+# Git
+.git
+.gitignore
