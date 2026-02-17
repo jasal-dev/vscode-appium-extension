@@ -5,6 +5,7 @@ A VS Code extension that exposes AI-callable tools for controlling Android devic
 ## Documentation
 
 - **[QUICKSTART.md](./QUICKSTART.md)** - 5-minute quick start guide
+- **[FAQ.md](./FAQ.md)** - Answers to common questions (verification, packaging, running without debug)
 - **[VERIFICATION.md](./VERIFICATION.md)** - How to verify the extension is working and see tools in GitHub Copilot
 - **[PACKAGING.md](./PACKAGING.md)** - How to create VSIX packages and install on other machines
 - **[USAGE.md](./USAGE.md)** - Detailed examples of using the tools with AI agents
