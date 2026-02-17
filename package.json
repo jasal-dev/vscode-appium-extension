@@ -19,7 +19,8 @@
     "languageModelTools": [
       {
         "name": "appium_startSession",
-        "description": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
+        "displayName": "Start Appium Session",
+        "modelDescription": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -37,7 +38,8 @@
       },
       {
         "name": "appium_stopSession",
-        "description": "Terminate the active Appium session and clean up resources.",
+        "displayName": "Stop Appium Session",
+        "modelDescription": "Terminate the active Appium session and clean up resources.",
         "inputSchema": {
           "type": "object",
           "properties": {}
@@ -45,7 +47,8 @@
       },
       {
         "name": "appium_findElement",
-        "description": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
+        "displayName": "Find UI Element",
+        "modelDescription": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -63,7 +66,8 @@
       },
       {
         "name": "appium_tap",
-        "description": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
+        "displayName": "Tap Element or Coordinates",
+        "modelDescription": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -84,7 +88,8 @@
       },
       {
         "name": "appium_typeText",
-        "description": "Type text into a focused or specified element.",
+        "displayName": "Type Text",
+        "modelDescription": "Type text into a focused or specified element.",
         "inputSchema": {
           "type": "object",
           "properties": {
@@ -102,7 +107,8 @@
       },
       {
         "name": "appium_screenshot",
-        "description": "Capture a screenshot of the device screen and save it to the workspace.",
+        "displayName": "Capture Screenshot",
+        "modelDescription": "Capture a screenshot of the device screen and save it to the workspace.",
         "inputSchema": {
           "type": "object",
           "properties": {}
@@ -110,7 +116,8 @@
       },
       {
         "name": "appium_pageSource",
-        "description": "Retrieve the current UI hierarchy XML and save it to the workspace.",
+        "displayName": "Get Page Source",
+        "modelDescription": "Retrieve the current UI hierarchy XML and save it to the workspace.",
         "inputSchema": {
           "type": "object",
           "properties": {}
