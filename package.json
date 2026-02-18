@@ -1,0 +1,182 @@
+{
+  "name": "appium-agent-tools",
+  "displayName": "Appium Agent Tools",
+  "description": "VS Code extension that exposes AI-callable tools for controlling Android devices via Appium",
+  "version": "0.1.0",
+  "publisher": "appium-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jasal-dev/vscode-appium-extension.git"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languageModelTools": [
+      {
+        "name": "appium_startSession",
+        "displayName": "Start Appium Session",
+        "toolReferenceName": "appiumStartSession",
+        "userDescription": "Start a new Android Appium automation session",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(play)",
+        "modelDescription": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
+        "tags": ["appium", "mobile", "testing", "android", "automation"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "serverUrl": {
+              "type": "string",
+              "description": "URL of the Appium server (e.g., http://127.0.0.1:4723)"
+            },
+            "capabilities": {
+              "type": "object",
+              "description": "Desired capabilities for the session (platformName, automationName, etc.)"
+            }
+          },
+          "required": ["serverUrl", "capabilities"]
+        }
+      },
+      {
+        "name": "appium_stopSession",
+        "displayName": "Stop Appium Session",
+        "toolReferenceName": "appiumStopSession",
+        "userDescription": "Stop the active Appium automation session",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(debug-stop)",
+        "modelDescription": "Terminate the active Appium session and clean up resources.",
+        "tags": ["appium", "mobile", "testing", "android", "automation"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "appium_findElement",
+        "displayName": "Find UI Element",
+        "toolReferenceName": "appiumFindElement",
+        "userDescription": "Find a UI element on the device screen",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(search)",
+        "modelDescription": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "ui"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "using": {
+              "type": "string",
+              "description": "Locator strategy: 'id', 'xpath', 'accessibility id', or 'class name'"
+            },
+            "value": {
+              "type": "string",
+              "description": "The locator value to search for"
+            }
+          },
+          "required": ["using", "value"]
+        }
+      },
+      {
+        "name": "appium_tap",
+        "displayName": "Tap Element or Coordinates",
+        "toolReferenceName": "appiumTap",
+        "userDescription": "Tap on a UI element or screen coordinates",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(record)",
+        "modelDescription": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "interaction"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "elementId": {
+              "type": "string",
+              "description": "Element ID to tap (from findElement)"
+            },
+            "x": {
+              "type": "number",
+              "description": "X coordinate for tapping"
+            },
+            "y": {
+              "type": "number",
+              "description": "Y coordinate for tapping"
+            }
+          }
+        }
+      },
+      {
+        "name": "appium_typeText",
+        "displayName": "Type Text",
+        "toolReferenceName": "appiumTypeText",
+        "userDescription": "Type text into a UI element on the device",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(edit)",
+        "modelDescription": "Type text into a focused or specified element.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "interaction", "input"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "elementId": {
+              "type": "string",
+              "description": "Element ID to type into"
+            },
+            "text": {
+              "type": "string",
+              "description": "Text to type"
+            }
+          },
+          "required": ["elementId", "text"]
+        }
+      },
+      {
+        "name": "appium_screenshot",
+        "displayName": "Capture Screenshot",
+        "toolReferenceName": "appiumScreenshot",
+        "userDescription": "Capture a screenshot of the device screen",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(device-camera)",
+        "modelDescription": "Capture a screenshot of the device screen and save it to the workspace.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "screenshot"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      {
+        "name": "appium_pageSource",
+        "displayName": "Get Page Source",
+        "toolReferenceName": "appiumPageSource",
+        "userDescription": "Get the current UI hierarchy (page source) from the device",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(code)",
+        "modelDescription": "Retrieve the current UI hierarchy XML and save it to the workspace.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "ui"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.100.0",
+    "@vscode/vsce": "^2.22.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {}
+}
