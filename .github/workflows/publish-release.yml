@@ -1,0 +1,76 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag (example: v0.1.0)"
+        required: true
+        type: string
+      release_name:
+        description: "Release title shown in GitHub Releases"
+        required: false
+        type: string
+      prerelease:
+        description: "Mark this release as pre-release"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compile extension
+        run: npm run compile
+
+      - name: Build VSIX package
+        run: npm run package
+
+      - name: Locate VSIX artifact
+        id: locate_vsix
+        shell: bash
+        run: |
+          VSIX_FILE=$(ls -1 *.vsix | head -n 1)
+          if [ -z "$VSIX_FILE" ]; then
+            echo "No VSIX artifact found in repository root."
+            exit 1
+          fi
+          echo "vsix_file=$VSIX_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          RELEASE_NAME="${{ inputs.release_name }}"
+          if [ -z "$RELEASE_NAME" ]; then
+            RELEASE_NAME="${{ inputs.tag }}"
+          fi
+
+          if [ "${{ inputs.prerelease }}" = "true" ]; then
+            gh release create "${{ inputs.tag }}" "${{ steps.locate_vsix.outputs.vsix_file }}" \
+              --title "$RELEASE_NAME" \
+              --generate-notes \
+              --prerelease
+          else
+            gh release create "${{ inputs.tag }}" "${{ steps.locate_vsix.outputs.vsix_file }}" \
+              --title "$RELEASE_NAME" \
+              --generate-notes
+          fi

@@ -153,6 +153,21 @@ npm run compile
 npm run watch
 ```
 
+### Publish Release (GitHub Actions)
+
+This repository includes a manual workflow to package and publish a release with a VSIX asset.
+
+1. Open GitHub → **Actions** → **Publish Release**.
+2. Click **Run workflow**.
+3. Provide:
+   - `tag` (required, example: `v0.1.0`)
+   - `release_name` (optional)
+   - `prerelease` (optional)
+4. Run the workflow.
+
+The workflow compiles the extension, builds the `.vsix`, and creates a GitHub Release with the VSIX attached.
+Users can then download new versions from the repository **Releases** page.
+
 ## Configuration
 
 The extension uses default Appium server URL: `http://127.0.0.1:4723`
