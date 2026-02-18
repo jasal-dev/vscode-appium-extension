@@ -9,7 +9,7 @@
     "url": "https://github.com/jasal-dev/vscode-appium-extension.git"
   },
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "Testing",
@@ -24,6 +24,10 @@
       {
         "name": "appium_startSession",
         "displayName": "Start Appium Session",
+        "toolReferenceName": "appiumStartSession",
+        "userDescription": "Start a new Android Appium automation session",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(play)",
         "modelDescription": "Start a new Android Appium session. Connects to the Appium server and initializes a new automation session with specified capabilities.",
         "tags": ["appium", "mobile", "testing", "android", "automation"],
         "inputSchema": {
@@ -44,6 +48,10 @@
       {
         "name": "appium_stopSession",
         "displayName": "Stop Appium Session",
+        "toolReferenceName": "appiumStopSession",
+        "userDescription": "Stop the active Appium automation session",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(debug-stop)",
         "modelDescription": "Terminate the active Appium session and clean up resources.",
         "tags": ["appium", "mobile", "testing", "android", "automation"],
         "inputSchema": {
@@ -54,6 +62,10 @@
       {
         "name": "appium_findElement",
         "displayName": "Find UI Element",
+        "toolReferenceName": "appiumFindElement",
+        "userDescription": "Find a UI element on the device screen",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(search)",
         "modelDescription": "Find a UI element using a locator strategy (id, xpath, accessibility id, or class name).",
         "tags": ["appium", "mobile", "testing", "android", "automation", "ui"],
         "inputSchema": {
@@ -74,6 +86,10 @@
       {
         "name": "appium_tap",
         "displayName": "Tap Element or Coordinates",
+        "toolReferenceName": "appiumTap",
+        "userDescription": "Tap on a UI element or screen coordinates",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(record)",
         "modelDescription": "Tap an element or screen coordinates. Provide either elementId or x/y coordinates.",
         "tags": ["appium", "mobile", "testing", "android", "automation", "interaction"],
         "inputSchema": {
@@ -97,6 +113,10 @@
       {
         "name": "appium_typeText",
         "displayName": "Type Text",
+        "toolReferenceName": "appiumTypeText",
+        "userDescription": "Type text into a UI element on the device",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(edit)",
         "modelDescription": "Type text into a focused or specified element.",
         "tags": ["appium", "mobile", "testing", "android", "automation", "interaction", "input"],
         "inputSchema": {
@@ -117,6 +137,10 @@
       {
         "name": "appium_screenshot",
         "displayName": "Capture Screenshot",
+        "toolReferenceName": "appiumScreenshot",
+        "userDescription": "Capture a screenshot of the device screen",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(device-camera)",
         "modelDescription": "Capture a screenshot of the device screen and save it to the workspace.",
         "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "screenshot"],
         "inputSchema": {
@@ -127,6 +151,10 @@
       {
         "name": "appium_pageSource",
         "displayName": "Get Page Source",
+        "toolReferenceName": "appiumPageSource",
+        "userDescription": "Get the current UI hierarchy (page source) from the device",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(code)",
         "modelDescription": "Retrieve the current UI hierarchy XML and save it to the workspace.",
         "tags": ["appium", "mobile", "testing", "android", "automation", "debug", "ui"],
         "inputSchema": {
@@ -146,7 +174,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/vscode": "^1.90.0",
+    "@types/vscode": "^1.100.0",
     "@vscode/vsce": "^2.22.0",
     "typescript": "^5.3.0"
   },
