@@ -2,7 +2,7 @@
   "name": "appium-agent-tools",
   "displayName": "Appium Agent Tools",
   "description": "VS Code extension that exposes AI-callable tools for controlling Android devices via Appium",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "appium-tools",
   "repository": {
     "type": "git",
