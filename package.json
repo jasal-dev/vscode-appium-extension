@@ -135,6 +135,31 @@
         }
       },
       {
+        "name": "appium_swipe",
+        "displayName": "Swipe Up or Down",
+        "toolReferenceName": "appiumSwipe",
+        "userDescription": "Swipe vertically on the device screen (up or down)",
+        "canBeReferencedInPrompt": true,
+        "icon": "$(move)",
+        "modelDescription": "Perform a vertical swipe gesture. Use direction 'up' or 'down'.",
+        "tags": ["appium", "mobile", "testing", "android", "automation", "interaction", "gesture"],
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "direction": {
+              "type": "string",
+              "enum": ["up", "down"],
+              "description": "Swipe direction: 'up' or 'down'"
+            },
+            "duration": {
+              "type": "number",
+              "description": "Swipe duration in milliseconds (100-3000, default 400)"
+            }
+          },
+          "required": ["direction"]
+        }
+      },
+      {
         "name": "appium_screenshot",
         "displayName": "Capture Screenshot",
         "toolReferenceName": "appiumScreenshot",

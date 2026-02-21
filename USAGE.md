@@ -135,6 +135,21 @@ appium_tap({
 })
 ```
 
+## Example 5: Swipe Up and Down
+
+```json
+// Swipe up to scroll down in a list
+appium_swipe({
+  "direction": "up",
+  "duration": 500
+})
+
+// Swipe down to scroll back up
+appium_swipe({
+  "direction": "down"
+})
+```
+
 ## Locator Strategies
 
 The extension supports these locator strategies:

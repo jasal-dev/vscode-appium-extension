@@ -13,15 +13,16 @@ A VS Code extension that exposes AI-callable tools for controlling Android devic
 
 ## Features
 
-This extension provides 7 Language Model Tools that GitHub Copilot Agent and other AI agents can invoke:
+This extension provides 8 Language Model Tools that GitHub Copilot Agent and other AI agents can invoke:
 
 1. **appium_startSession** - Start a new Android Appium session
 2. **appium_stopSession** - Terminate the active Appium session
 3. **appium_findElement** - Find UI elements using locator strategies
 4. **appium_tap** - Tap elements or screen coordinates
 5. **appium_typeText** - Type text into input elements
-6. **appium_screenshot** - Capture device screenshots
-7. **appium_pageSource** - Retrieve UI hierarchy XML
+6. **appium_swipe** - Swipe up or down on screen
+7. **appium_screenshot** - Capture device screenshots
+8. **appium_pageSource** - Retrieve UI hierarchy XML
 
 ## Prerequisites
 
@@ -81,13 +82,13 @@ After launching the extension (F5) or installing from VSIX:
    - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
    - Click the settings gear icon (⚙️) in the chat panel
    - Look for "Tools" or "Agent Tools" section
-   - You'll see all 7 Appium tools with their display names and tags
+   - You'll see all 8 Appium tools with their display names and tags
    - Enable/disable individual tools as needed
 
 3. **Check GitHub Copilot Integration**:
    - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
    - Ask: "What Appium tools do you have available?"
-   - You should see the 7 Appium tools listed
+   - You should see the 8 Appium tools listed
 
 4. **View Tools in Copilot**:
    The following tools will be available to AI agents:
@@ -96,6 +97,7 @@ After launching the extension (F5) or installing from VSIX:
    - `appium_findElement` - Find UI Element (tags: appium, mobile, testing, android, automation, ui)
    - `appium_tap` - Tap Element or Coordinates (tags: appium, mobile, testing, android, automation, interaction)
    - `appium_typeText` - Type Text (tags: appium, mobile, testing, android, automation, interaction, input)
+   - `appium_swipe` - Swipe Up or Down (tags: appium, mobile, testing, android, automation, interaction, gesture)
    - `appium_screenshot` - Capture Screenshot (tags: appium, mobile, testing, android, automation, debug, screenshot)
    - `appium_pageSource` - Get Page Source (tags: appium, mobile, testing, android, automation, debug, ui)
 
@@ -179,7 +181,7 @@ You can specify a different URL when starting a session through the AI agent.
 - Single session at a time
 - Android only
 - No iOS support
-- No gesture actions (swipe, pinch)
+- No advanced multi-touch gestures (pinch, zoom)
 - In-memory session state (lost on extension reload)
 
 ## License

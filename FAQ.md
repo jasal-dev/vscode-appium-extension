@@ -20,7 +20,7 @@ When you press F5 and the extension loads, you can verify it's active:
 2. **Debug Console** (in original VS Code window):
    ```
    Appium Agent Tools extension is now active
-   All 7 Appium tools registered successfully
+   All 8 Appium tools registered successfully
    ```
 
 ### In Agent Tool Configuration View:
@@ -36,7 +36,7 @@ The tools now appear in the **agent tool configuration view** where you can sele
 
 2. **View Tools List**:
    - Look for the "Tools" or "Agent Tools" section
-   - You'll see all 7 Appium tools listed with their display names
+   - You'll see all 8 Appium tools listed with their display names
    - Each tool has tags like: `appium`, `mobile`, `testing`, `android`, `automation`
 
 3. **Enable/Disable Tools**:
@@ -49,12 +49,13 @@ The tools appear as **callable functions** that Copilot can use:
 
 1. **Open Copilot Chat**: Press `Ctrl+Shift+I` or `Cmd+Shift+I`
 2. **Ask Copilot**: "What Appium tools do you have available?"
-3. **Copilot will list the 7 tools**:
+3. **Copilot will list the 8 tools**:
    - Start Appium Session
    - Stop Appium Session
    - Find UI Element
    - Tap Element or Coordinates
    - Type Text
+   - Swipe Up or Down
    - Capture Screenshot
    - Get Page Source
 
@@ -96,7 +97,7 @@ Here are **multiple ways** to verify:
    ```
    Activating extension 'appium-tools.appium-agent-tools'...
    Appium Agent Tools extension is now active
-   All 7 Appium tools registered successfully
+   All 8 Appium tools registered successfully
    ```
 
 ### Method 3: View in Agent Tool Configuration
@@ -106,7 +107,7 @@ Here are **multiple ways** to verify:
 1. In Extension Development Host, open Copilot Chat (`Ctrl+Shift+I`)
 2. Click the settings gear icon (⚙️) in the chat panel
 3. Look for "Tools" or "Agent Tools" section
-4. You should see all 7 Appium tools listed with their display names and tags
+4. You should see all 8 Appium tools listed with their display names and tags
 5. Tools can be enabled/disabled individually from this UI
 
 ### Method 4: Test with GitHub Copilot
@@ -118,7 +119,7 @@ Here are **multiple ways** to verify:
    - "What Appium tools are available?"
    - "Can you list the Appium automation tools?"
    - "What tools do you have for Android testing?"
-3. Copilot should mention the 7 Appium tools
+3. Copilot should mention the 8 Appium tools
 
 ### Method 5: Check Extension Host Log
 

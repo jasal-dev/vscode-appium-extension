@@ -24,7 +24,7 @@ Get started with Appium Agent Tools in 5 minutes.
 4. **Test with Copilot**:
    - Open GitHub Copilot Chat (`Ctrl+Shift+I`)
    - Ask: "What Appium tools are available?"
-   - You should see 7 tools listed
+   - You should see 8 tools listed
 
 **See**: [VERIFICATION.md](./VERIFICATION.md) for detailed verification steps
 
@@ -47,7 +47,7 @@ Get started with Appium Agent Tools in 5 minutes.
    - Should show as **Installed**
 
 4. **Use with Copilot**:
-   - The 7 tools are now available to GitHub Copilot
+   - The 8 tools are now available to GitHub Copilot
    - Start Appium server: `appium --port 4723`
    - Connect device: `adb devices`
    - Ask Copilot to automate Android tasks
@@ -56,7 +56,7 @@ Get started with Appium Agent Tools in 5 minutes.
 
 ---
 
-## The 7 Tools
+## The 8 Tools
 
 When the extension is active, these tools are available to AI agents:
 
@@ -67,6 +67,7 @@ When the extension is active, these tools are available to AI agents:
 | `appium_findElement` | Find UI Element | Locate elements by id, xpath, etc. |
 | `appium_tap` | Tap Element or Coordinates | Tap elements or screen coordinates |
 | `appium_typeText` | Type Text | Enter text into input fields |
+| `appium_swipe` | Swipe Up or Down | Perform vertical swipe gestures |
 | `appium_screenshot` | Capture Screenshot | Save device screenshot |
 | `appium_pageSource` | Get Page Source | Get UI hierarchy XML |
 

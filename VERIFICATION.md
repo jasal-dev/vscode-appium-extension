@@ -30,7 +30,7 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
 2. You should see output like:
    ```
    Appium Agent Tools extension is now active
-   All 7 Appium tools registered successfully
+   All 8 Appium tools registered successfully
    ```
 
 ### Method 3: Check Extension Host Log
@@ -39,7 +39,7 @@ This guide explains how to verify that the Appium Agent Tools extension is worki
    - Press `Ctrl+Shift+P` (or `Cmd+Shift+P` on Mac)
    - Type: `Developer: Show Logs`
    - Select **Extension Host**
-2. Look for entries related to "Appium Agent Tools" or the 7 tool registrations
+2. Look for entries related to "Appium Agent Tools" or the 8 tool registrations
 
 ---
 
@@ -71,12 +71,13 @@ If you see the log message `ExtensionService#_doActivateExtension appium-tools.a
 
 2. **View Available Tools**:
    - Look for the "Tools" or "Agent Tools" section
-   - You should see all 7 Appium tools listed:
+    - You should see all 8 Appium tools listed:
      - **Start Appium Session** - Tags: appium, mobile, testing, android, automation
      - **Stop Appium Session** - Tags: appium, mobile, testing, android, automation
      - **Find UI Element** - Tags: appium, mobile, testing, android, automation, ui
      - **Tap Element or Coordinates** - Tags: appium, mobile, testing, android, automation, interaction
      - **Type Text** - Tags: appium, mobile, testing, android, automation, interaction, input
+       - **Swipe Up or Down** - Tags: appium, mobile, testing, android, automation, interaction, gesture
      - **Capture Screenshot** - Tags: appium, mobile, testing, android, automation, debug, screenshot
      - **Get Page Source** - Tags: appium, mobile, testing, android, automation, debug, ui
 
@@ -117,14 +118,15 @@ Each tool is tagged with relevant categories to help with discovery and filterin
 2. **Check Available Tools**:
    - In the Copilot Chat, type: `@workspace /api`
    - Or type: `What tools do you have available?`
-   - Look for the 7 Appium tools in the response
+   - Look for the 8 Appium tools in the response
 
-3. **The 7 tools you should see**:
+3. **The 8 tools you should see**:
    - `appium_startSession` - Start Appium Session
    - `appium_stopSession` - Stop Appium Session
    - `appium_findElement` - Find UI Element
    - `appium_tap` - Tap Element or Coordinates
    - `appium_typeText` - Type Text
+   - `appium_swipe` - Swipe Up or Down
    - `appium_screenshot` - Capture Screenshot
    - `appium_pageSource` - Get Page Source
 
@@ -157,7 +159,7 @@ If you want to test the tools directly (without Copilot), you can check the exte
    ```javascript
    vscode.lm.tools
    ```
-3. This should show all registered Language Model tools, including the 7 Appium tools
+3. This should show all registered Language Model tools, including the 8 Appium tools
 
 ### Method 2: Extension API
 

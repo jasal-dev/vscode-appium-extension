@@ -11,6 +11,7 @@ import { tap } from './tools/tap';
 import { typeText } from './tools/typeText';
 import { screenshot } from './tools/screenshot';
 import { pageSource } from './tools/pageSource';
+import { swipe } from './tools/swipe';
 
 export function activate(context: vscode.ExtensionContext) {
   console.log('Appium Agent Tools extension is now active');
@@ -102,6 +103,24 @@ export function activate(context: vscode.ExtensionContext) {
   });
   context.subscriptions.push(typeTextTool);
 
+  // Register appium_swipe tool
+  const swipeTool = vscode.lm.registerTool('appium_swipe', {
+    invoke: async (
+      options: vscode.LanguageModelToolInvocationOptions<{
+        direction: 'up' | 'down';
+        duration?: number;
+      }>,
+      _token: vscode.CancellationToken
+    ) => {
+      const { direction, duration } = options.input;
+      const result = await swipe(direction, duration);
+      return new vscode.LanguageModelToolResult([
+        new vscode.LanguageModelTextPart(result)
+      ]);
+    }
+  });
+  context.subscriptions.push(swipeTool);
+
   // Register appium_screenshot tool
   const screenshotTool = vscode.lm.registerTool('appium_screenshot', {
     invoke: async (
@@ -130,7 +149,7 @@ export function activate(context: vscode.ExtensionContext) {
   });
   context.subscriptions.push(pageSourceTool);
 
-  console.log('All 7 Appium tools registered successfully');
+  console.log('All 8 Appium tools registered successfully');
 }
 
 export function deactivate() {
